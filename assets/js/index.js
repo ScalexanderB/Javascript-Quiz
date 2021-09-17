@@ -1,6 +1,9 @@
+var timerEl = document.getElementById('timer');
+var startBtn = document.getElementById('start')
+
 // Quiz timer starting from 60 seconds
 
-function countdown() {
+function timer() {
     var timeLeft = 60;
 
     var timeInterval = setInterval(function() {
@@ -12,8 +15,11 @@ function countdown() {
         else {
             timerEl.textContent = '';
             clearInterval(timeInterval);
-            alert("Time's up!")
+            window.confirm("Time's up! Take the quiz again?")
+
         } 
     }, 1000);
 }
+
+startBtn.onclick = timer;
 
