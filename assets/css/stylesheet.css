@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+  }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    color: snow;
+    background-color: darkslategrey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-height: 100vh;
+    align-items: center;
+
+}
+
+.container p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100px;
+    background-color: black;
+    color: snow;
+    border-radius: 12px;
+    height: 40px;
+    align-content: center;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.quiz {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
