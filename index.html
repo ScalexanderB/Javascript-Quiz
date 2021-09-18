@@ -8,17 +8,28 @@
     <link rel="stylesheet" href="assets/css/stylesheet.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="quiz">
-            Test your Javascript knowledge!
-        </h1>
-        <h2 id="timer"></h2>
-        <p>Take a moment to complete the following quiz about javascript. <br/>
-            You have 60 seconds on the clock, wrong answers will deduct 10 seconds. <br/> Good luck!
-        </p>
-        <button class= "start" id="start">Start</button>
-
+    <!-- Start button -->
+    <div class="start">
+        <button>Start Quiz</button>
     </div>
+
+    <!-- Quiz Rules -->
+    <div class="rules-box">
+        <div class="rules-title">
+            <span>Quiz Rules</span>
+        </div>
+            <div class="rules-list">   
+                <div class="rules">1.) The quiz is timed for 60 seconds.</div>
+                <div class="rules">2.) Wrong answers deduct 10 seconds.</div>
+                <div class="rules">3.) When the clock reaches 0 seconds or you answer all the questions, the quiz will end.</div>
+        </div>    
+        <div class="buttons">
+            <button class="quit">Quit</button>
+            <button class="retry">Continue</button>
+        </div>
+    </div>
+
+
 <script src="assets/js/index.js"></script>
 </body>
 </html>

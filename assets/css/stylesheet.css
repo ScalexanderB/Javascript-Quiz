@@ -1,42 +1,103 @@
-* {
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-  }
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    color: snow;
+body {
     background-color: darkslategrey;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    min-height: 100vh;
-    align-items: center;
-
 }
 
-.container p {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.start,
+.rules-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.container button {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100px;
-    background-color: black;
+/* Start button style */
+
+.start button {
+    font-size: 30px;
+    font-weight: 500;
     color: snow;
-    border-radius: 12px;
-    height: 40px;
-    align-content: center;
-    font-size: large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 15px 30px;
+    outline: none;
+    border-radius: 20px;
+    background-color: black;
+    cursor: pointer;
+
 }
 
-.quiz {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.rules-box{
+    display: none;
+    width: 540px;
+    background-color: snow;
+    border-radius: 7px;
 }
+
+.rules-box .rules-title {
+    height: 60px;
+    width: 100px;
+    border-bottom: 1px solid darkslategrey;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.rules-box .rules-list {
+    padding: 15px 35px;
+}
+
+.rules-box .rules-list .rules {
+    margin: 5px 0;
+    font-size: 20px;
+
+}
+
+.rules-box .buttons {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid darkslategrey;
+}
+
+.rules-box .buttons button {
+    margin: 0 5px;
+    height 40px;
+    width: 100px;
+    border: 1px solid darkslategrey;
+    border-radius: 5px;
+    color: snow;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons button.retry {
+    color: snow;
+    border-color: darkslategrey;
+    background-color: darkslategrey;
+}
+
+.buttons button.retry:hover {
+    background-color: black;
+}
+
+.buttons button.quit {
+    color: darkslategrey;
+    border-color: darkslategrey;
+}
+
+.buttons button.quit:hover {
+    color: snow;
+    background-color: darkslategrey
+}
+
