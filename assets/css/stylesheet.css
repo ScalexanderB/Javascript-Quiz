@@ -11,7 +11,8 @@ body {
 
 .start,
 .rules-box,
-.quiz-box {
+.quiz-box,
+.score-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -29,15 +30,23 @@ body {
     border-radius: 20px;
     background-color: black;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
 
+.start button:hover {
+    background: snow;
+    color: black;
+    border-color: black;
 }
 
 /*Rule box style */
 .rules-box{
-    display: none;
     width: 540px;
     background-color: snow;
     border-radius: 7px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
 .rules-box .rules-title {
@@ -107,10 +116,12 @@ body {
 
 /*Quiz box style*/
 .quiz-box {
-    display: none;
     width: 550px;
     background-color: snow;
     border-radius: 7px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
 .quiz-box header {
@@ -242,4 +253,55 @@ footer .next-button {
 
 footer .next-button:hover {
     background: black;
+}
+
+.score-box {
+    background: snow;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 7px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
+}
+
+.score-box .quiz-complete {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.score-box .score-text span {
+    display: flex;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.score-text span p {
+    font-weight: 600;
+    padding: 0 4px;
+}
+
+.score-box .buttons {
+    display: flex;
+    margin: 20px 0;
+}
+
+.score-box .buttons button {
+    margin: 0 10px;
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid darkslategrey;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
