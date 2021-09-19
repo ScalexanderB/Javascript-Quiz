@@ -1,0 +1,38 @@
+* {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    background: darkslategrey;
+    color: snow;
+}
+
+/* Main content */
+main {
+    /* css so footer is at bottom of viewport */
+    flex: 1 0 auto;
+}
+
+/* hide sections until they are shown via the click events */
+#questions,
+#final,
+#highscores,
+#yaynay {
+    display: none;  
+  } 
+
+/* Remove bullet points from answers list */
+ul.nobullets {
+list-style-type: none;
+}
+
+/* Answer button styling */
+.ansBtn,
+.ansBtn:hover,
+.ansBtn:active,
+.ansBtn:focus,
+.ansBtn:active:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: black;
+}
