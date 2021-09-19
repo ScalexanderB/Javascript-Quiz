@@ -88,4 +88,103 @@ const questions = [
         answers: ["1. Syntax error", "2. Missing semicolons", "3.Division by zero", "4.Missing bracket"],
         correctAnswer: "2"
     },
-]
+];
+
+// Quiz functions
+
+//timer
+function setTime() {
+    let timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = `Time:${secondsLeft}s`;
+
+        if (secondsLeft === 0 || questionsCount === questions.length) {
+            clearInterval(timerInterval);
+            questionsEl.style.display = "none";
+            finalEl.style.display = "block";
+            scoreEl.textContent = secondsLeft;
+        }
+    }, 1000); 
+}
+
+// initiate quiz with timer starting on first question
+function startQuiz() {
+    introEl.style.display = "none";
+    questionsEl.style.display = "block";
+    questionCount = 0;
+
+    setTime();
+    setQuestion(questionCount);
+}
+
+// function to set the question
+function setQuestion(id) {
+    if (id < questions.length) {
+        questionEl.textContent = questions[id].questions;
+        ans1Btn.textContent = questions[id].answers[0];
+        ans2Btn.textContent = questions[id].answers[1];
+        ans3Btn.textContent = questions[id].answers[2];
+        ans4Btn.textContent = questions[id].answers[3];
+    }
+}
+
+// function to check answer and move on
+function checkAnswer(event) {
+    event.preventDefault();
+
+    // show yesorno and show message
+    yesornoEl.style.display = "block";
+    let p = document.createElement("p");
+    yesornoEl.appendChild(p);
+
+    // time out after 1 second
+    setTimeout(function () {
+        p.style.display = 'none';
+    }, 1000);
+    
+    // answer check
+    if (questions[questionCount].correctAnswer === event.target.value) {
+        p.textContent = "That's right!";
+    } else if (questions[questionCount].correctAnswer !== event.target.value) {
+        secondsLeft = secondsLeft - 10;
+        p.textContent = "That's wrong.. :("
+    }
+
+    // question number increases
+    if (questionCount < questions.length) {
+        questionCount++;
+    }
+
+    setQuestion(questionCount);
+}
+
+// add score function
+function addScore(event) {
+    event.preventDefault();
+
+    finalEl.style.display = "none";
+    highscoresEl.style.display = "block";
+
+    let init = initialsInput.value.toUpperCase();
+    scoreList.push({ initials: init, score: secondsLeft});
+
+    // score sorting
+    scoreList = scoreList.sort((a, b) => {
+        if (a.score < b.score) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+
+    scoreListEl.innerHTML="";
+    for (let i = 0; i < scoreList.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+        scoreListEl.append(li);
+    }
+
+    // add scores and initials to local storage
+    storeScores();
+    displayScores();
+}
