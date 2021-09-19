@@ -61,7 +61,7 @@ const questions = [
     {
         //first question
         question: "Which one of the following is also known as a Conditional Expression?",
-        answers: ["1. Alternative to if-else", "2. Switch Statement", "3.If-then-else statement", "4.immediate if"],
+        answers: ["1. Alternative to if-else", "2. Switch Statement", "3.If-then-else statement", "4.Immediate if"],
         correctAnswer: "3"
     },
     {
@@ -98,7 +98,7 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = `Time:${secondsLeft}s`;
 
-        if (secondsLeft === 0 || questionsCount === questions.length) {
+        if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timerInterval);
             questionsEl.style.display = "none";
             finalEl.style.display = "block";
@@ -120,7 +120,7 @@ function startQuiz() {
 // function to set the question
 function setQuestion(id) {
     if (id < questions.length) {
-        questionEl.textContent = questions[id].questions;
+        questionEl.textContent = questions[id].question;
         ans1Btn.textContent = questions[id].answers[0];
         ans2Btn.textContent = questions[id].answers[1];
         ans3Btn.textContent = questions[id].answers[2];
@@ -188,3 +188,57 @@ function addScore(event) {
     storeScores();
     displayScores();
 }
+
+function storeScores() {
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+}
+
+function displayScores() {
+    let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+
+    //if scores are retrieved from local storage, update the score list array to it
+    if (storedScoreList !== null) {
+        scoreList = storedScoreList;
+    }
+}
+
+//clear score function
+function clearScores() {
+    localStorage.clear();
+    scoreListEl.innerHTML="";
+}
+
+// Event listeners
+
+// Start button
+startBtn.addEventListener("click", startQuiz);
+
+// check answer loop
+ansBtn.forEach(item => {
+    item.addEventListener('click', checkAnswer);
+});
+
+// Adding score
+submitScrBtn.addEventListener("click", addScore);
+
+// Go back
+goBackBtn.addEventListener("click", function() {
+    highscoresEl.style.display = "none";
+    introEl.style.display= "block";
+    secondsLeft = 60;
+    timeEl.textContent = `Time:${secondsLeft}s`;
+});
+
+// Clear score
+clearScrBtn.addEventListener("click", clearScores);
+
+// View high scores
+viewScrBtn.addEventListener("click", function() {
+    if (highscoresEl.style.display === "none") {
+        highscoresEl.style.display = "block";
+    } else if (highscoresEl.style.display === "block") {
+        highscoresEl.style.display = "none";
+    } else {
+        return alert ("No scores to show.")
+    }
+});
