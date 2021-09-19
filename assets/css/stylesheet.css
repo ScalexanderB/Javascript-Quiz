@@ -17,7 +17,7 @@ main {
 #questions,
 #final,
 #highscores,
-#yaynay {
+#yesorno {
     display: none;  
   } 
 
@@ -35,4 +35,33 @@ list-style-type: none;
     box-shadow: none;
     outline: none;
     background-color: black;
+}
+
+/* Start button styling */
+.btn {
+    background: black;
+    outline: black;
+    border: black;
+    height: 60px;
+    width: 100px;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus,
+.btn:active:focus {
+    background: slategrey;
+    color: black;
+    height: 60px;
+    width: 140px;
+    border-radius: 40px;
+    border: 3px solid black;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.btn:active {
+
 }
